@@ -10,9 +10,9 @@ class Mine extends React.Component {
                 </div>
                 <p>loremcascasca</p>
 
-                <Child />
-                <Child />
-                <Child />
+                <Child text='text 1' />
+                <Child text='text 2' />
+                <Child text='text 3' />
             </div>
         )
     }
