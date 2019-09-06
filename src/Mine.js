@@ -2,20 +2,19 @@ import React from 'react';
 import Child from './Child';
 
 class Mine extends React.Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         text: []
-    //     }
-
-    //     console.log('constructor');
-    // }
-
-    state = {
-        text: []
+    constructor() {
+        // console.log('constructor');
+        super()
+        this.state = { text: [] }
+        this.changeColor = this.changeColor.bind(this);
     }
 
-    componentDidMount() {
+    // state = {
+    //     text: [],
+    //     color: ''
+    // }
+
+    componentDidMount() { //digunakan untuk meng-set nilai awal dari suatu state
         // console.log('did mount');
 
         //jangan nge-set state di dalam render, set di dalam componentDidMount
@@ -25,18 +24,28 @@ class Mine extends React.Component {
                     'Belajar React Js',
                     'Asyik',
                     'Gud Sekali'
-                ]
+                ],
+                color: 'red'
             }
         )
+    }
+
+    changeColor() {
+        if (this.state.color === 'red') {
+            this.setState({ color: 'blue' })
+        } else {
+            this.setState({ color: 'red' })
+        }
     }
 
     render() {
         // console.log('render');
 
         // let texts = this.state.text.map((text, index) => <Child key={index} text={text} />)
+        let style = { color: this.state.color }
 
         return (
-            <div>
+            <div style={style} onClick={this.changeColor}>
                 <div id="mine">
                     Lil Valcon
                 </div>
@@ -48,9 +57,7 @@ class Mine extends React.Component {
 
                 {/* {texts} */}
 
-                {
-                    this.state.text.map((text, index) => <Child key={index} text={text} />)
-                }
+                {this.state.text.map((text, index) => <Child key={index} text={text} />)}
 
                 <button onClick={() => {
                     this.setState(
@@ -63,6 +70,7 @@ class Mine extends React.Component {
                         }
                     )
                 }}>Change</button>
+
             </div>
         )
     }
