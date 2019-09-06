@@ -5,8 +5,9 @@ class Mine extends React.Component {
     constructor() {
         // console.log('constructor');
         super()
-        this.state = { text: [] }
+        this.state = { text: [], color: '', counter: 0 }
         this.changeColor = this.changeColor.bind(this);
+        this.counterClick = this.counterClick.bind(this);
     }
 
     // state = {
@@ -30,12 +31,16 @@ class Mine extends React.Component {
         )
     }
 
-    changeColor() {
+    changeColor = () => {
         if (this.state.color === 'red') {
             this.setState({ color: 'blue' })
         } else {
             this.setState({ color: 'red' })
         }
+    }
+
+    counterClick = () => {
+        this.setState({ counter: this.state.counter + 1 })
     }
 
     render() {
@@ -57,7 +62,7 @@ class Mine extends React.Component {
 
                 {/* {texts} */}
 
-                {this.state.text.map((text, index) => <Child key={index} text={text} />)}
+                {this.state.text.map((text, index) => <Child key={index} text={text} counterClick={this.counterClick} />)}
 
                 <button onClick={() => {
                     this.setState(
@@ -70,7 +75,8 @@ class Mine extends React.Component {
                         }
                     )
                 }}>Change</button>
-
+                <br /><br />
+                {this.state.counter}
             </div>
         )
     }
