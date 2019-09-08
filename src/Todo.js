@@ -33,9 +33,7 @@ class Todo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.state.title) {
-            return
-        }
+        if (!this.state.title) { return }
 
         const newItem = {
             id: Date.now(),
