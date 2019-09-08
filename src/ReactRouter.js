@@ -9,14 +9,14 @@ function Home() {
 
 function ListView() {
     return (
-        <div>
+        <React.Fragment> // untuk menghidari error dari me-return lebih dari satu element selain menggunakan div / span
             <h2>Semua User</h2>
 
             <ul>
                 <li><Link to='users/danis'>Danis</Link></li>
                 <li><Link to='users/zaidan'>Zaidan</Link></li>
             </ul>
-        </div>
+        </React.Fragment>
     )
 }
 
