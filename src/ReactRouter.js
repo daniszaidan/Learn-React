@@ -9,7 +9,8 @@ function Home() {
 
 function ListView() {
     return (
-        <React.Fragment> // untuk menghidari error dari me-return lebih dari satu element selain menggunakan div / span
+        // untuk menghidari error dari me-return lebih dari satu element selain menggunakan div / span
+        <React.Fragment>
             <h2>Semua User</h2>
 
             <ul>
